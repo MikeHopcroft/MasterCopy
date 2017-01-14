@@ -8,5 +8,5 @@ Here is a linke to the MasterCopy app.
 
 Here is an embedded image.
 
-![alt text](Milkmaid.jpg "Vermeer's Milkmaid")
+![alt text](MilkMaid.jpg "Vermeer's Milkmaid")
 
