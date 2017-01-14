@@ -1,0 +1,146 @@
+﻿#stage {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 800px;
+    height: 800px;
+    border: 1px solid red;
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+}
+
+#overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: clip;
+    opacity: 0.75;
+    pointer-events: none;
+    display: none;
+}
+
+body {
+    overflow:hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    font-size: 24pt;
+}
+
+.instructions {
+    width:100%;
+    text-align: center;
+    color: red;
+    font-size: 48pt;
+    position:absolute;
+    top:20%;
+    height:10em;
+}
+
+#imageSelector {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    visibility: hidden;
+}
+
+#imageSelectorBackground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    opacity: 0.5;
+}
+
+/* The LoadDialogButton sits below the <input> element used to load image
+   files. The <input> has class="FileInput" which makes it completely
+   transparent so that the user only sees the LoadDialogButton. The styles
+   for #LoadDialogButton and .FileInput must position and size the two
+   elements exactly the same so that the boundaries of the button provide
+   an accurate visual guide to the boundaries of the invisible <input>.
+*/
+#imageSelectorButton {
+    position: absolute;
+    top: 30%;
+    left:10%;
+    width:400px;
+    height:30px;
+    background-color: white;
+}
+
+.fileInput
+{
+    position:absolute;
+    top:30%;
+    left:10%;
+    width:400px;
+    height:30px;
+    opacity:0;
+}
+
+.dragHandle {
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px; 
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    border: 1px solid blue;
+    background-color: aquamarine;
+    background-image:url(CrossHairs.png);
+    opacity:0.5;
+}
+
+.translateHandle {
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px; 
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    border: 1px solid blue;
+    background-color: aquamarine;
+    background-image:url(Translate.png);
+    opacity:0.5;
+    cursor:move;
+}
+
+.rotateHandle {
+    width: 100px;
+    height: 100px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px; 
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    border: 1px solid blue;
+    background-color: aquamarine;
+    background-image:url(Arrows.png);
+    opacity:0.5;
+    cursor:url(RotateCursor.cur),auto;
+}
+
+
+.handlesFade
+{
+  -webkit-transition: 10s;
+  -moz-transition: 10s;
+  -ms-transition: 10s;
+  -o-transition: 10s;
+  transition: 10s;
+  opacity:0.0;
+}
+
