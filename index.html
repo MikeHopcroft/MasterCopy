@@ -1,19 +1,92 @@
-﻿<!DOCTYPE html>
+﻿<!--
+The MIT License (MIT)
+
+Copyright (c) 2015, 2016 Michael Hopcroft
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Test page</title>
-    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>MasterCopy</title>
+    <script type='text/javascript' src='JSFeat.js'></script>
+    <script type='text/javascript' src='LinearAlgebra.js'></script>
+    <script type='text/javascript' src='UserInterface.js'></script>
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-90363932-1', 'auto');
-      ga('send', 'pageview');
+          ga('create', 'UA-90363932-1', 'auto');
+          ga('send', 'pageview');
     </script>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
 </head>
     <body>
-        This is a test page.
+        <!-- NOTE: There must be no whitesapce between the stage and
+                instructions divs. The code expects the first child of
+                stage to be the instructions. If there is whitespace
+                between the two divs, the first child will be a text
+                element and this will prevent the script from removing
+                the instructions when loading an image. -->
+        <div id="stage"><div id="instructions" class="instructions">
+                MasterCopy<br/>
+                <img src="MilkMaid.jpg" />
+                <div style="position:absolute;left:20%;font-size:16pt;text-align:left">
+                    Press L to load one or more images.
+                    <br />
+                    Press DEL to remove the current image.
+                    <br />
+                    Use left and right arrows to cycle through images.
+                    <br />
+                    Press F11 to enter full screen mode.
+                    <br/>
+                    Press R to rotate the image 90 degrees counter clockwise.
+                    <br />
+                    Press X to reset the transformation.
+                    <br />
+                    Press W to toggle a blank screen.
+                    <br />
+                    Press D to toggle a demo mode.
+                    <br />
+                    <br />
+                    <a href="Overview.html">Click here for detailed instructions.</a>
+                </div>
+            </div>
+        </div>
+        <div id="overlay">
+            <img src="Easel.jpg" />
+        </div>
+        <div id="handles">
+            <div id="handleUL" style = "cursor:nw-resize" class="dragHandle"></div>
+            <div id="handleUR" style = "cursor:ne-resize" class="dragHandle"></div>
+            <div id="handleLR" style = "cursor:se-resize" class="dragHandle"></div>
+            <div id="handleLL" style="cursor:sw-resize" class="dragHandle"></div>
+            <div id="handleRotateAndScale" class="rotateHandle"></div>
+            <div id="handleTranslate" style="cursor:move" class="translateHandle"></div>
+        </div>
+        <div id="imageSelector">
+            <div id="imageSelectorBackground"></div>
+            <button id="imageSelectorButton">Click to load files.</button>
+            <div id="inputHome"></div>
+        </div>
     </body>
 </html>
