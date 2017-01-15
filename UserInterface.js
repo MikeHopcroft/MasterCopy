@@ -350,7 +350,15 @@ function KeyUp(event) {
     }
     else if (event.keyCode == 87) {
         // W for white stage.
-        ToggleWhiteStage();
+        ToggleFlashlight("white");
+    }
+    else if (event.keyCode == 66) {
+        // B for black stage.
+        ToggleFlashlight("black");
+    }
+    else if (event.keyCode == 32) {
+        // Exit flashlight mode.
+        ToggleFlashlight("");
     }
     else if (event.keyCode == 88) {
         // X for reset transformation.
@@ -446,11 +454,13 @@ function Rotate() {
 }
 
 
-function ToggleWhiteStage() {
-    if (stage.firstChild == blank) {
+function ToggleFlashlight(className) {
+    if (stage.firstChild == blank &&
+        (className.length == 0 || blank.className == className)) {
         UpdateStageImage();
     }
     else {
+        blank.className = className;
         stage.replaceChild(blank, stage.firstChild);
     }
 }
