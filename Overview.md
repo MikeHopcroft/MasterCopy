@@ -16,18 +16,15 @@ All you have to do is use the mouse to drag the corners in place.
 
 ## Videos
 
+A brief introduction to MasterCopy.
 
-<div>
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=rtPwoxF3wC4
 " target="_blank"><img src="http://img.youtube.com/vi/rtPwoxF3wC4/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
-Introductory Video
-</div>
 
 [Tour of MasterCopy features (coming soon)]()
 
 [Using MasterCopy offline (coming soon)]()
-
 
 
 ## Open Source project
