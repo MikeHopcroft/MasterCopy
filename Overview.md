@@ -1,5 +1,5 @@
-﻿
-### MasterCopy
+﻿MasterCopy
+==========
 
 [MasterCopy](index.html) is a free, open source web app
 for artists who use digital projectors
@@ -16,11 +16,11 @@ All you have to do is use the mouse to drag the corners in place.
 
 ## Videos
 
-A brief introduction to MasterCopy.
+A one minute introduction to MasterCopy.
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=rtPwoxF3wC4
 " target="_blank"><img src="http://img.youtube.com/vi/rtPwoxF3wC4/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+alt="IMAGE ALT TEXT HERE" width="240" height="135" border="10" /></a>
 
 [Tour of MasterCopy features (coming soon)]()
 
@@ -28,4 +28,8 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 
 ## Open Source project
+
+MasterCopy is open source and released under the [MIT license](LICENSE).
+Contributions are always welcome.
+
 [Source code on GitHub](https://github.com/MikeHopcroft/MasterCopy)
