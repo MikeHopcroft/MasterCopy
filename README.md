@@ -35,6 +35,6 @@ alt="IMAGE ALT TEXT HERE" width="240" height="135" border="10" /></a>
 
 MasterCopy is open source and released under the
 [MIT license](https://github.com/MikeHopcroft/MasterCopy/blob/gh-pages/LICENSE).
-[Contributions](Contributions.html) are always welcome.
+[Contributions](Contributions.md) are always welcome.
 
 [Source code on GitHub](https://github.com/MikeHopcroft/MasterCopy)
