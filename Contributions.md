@@ -11,28 +11,28 @@ The following are some areas for future development.
 
 ## Housekeeping Wish List
 
-**Cross-platform Testing and Continuous Integration**
+**Cross-platform Testing and Continuous Integration.**
 Right now MasterCopy is tested on a few versions of a few browsers.
 It would be nice if there was some automated way to test it on more browsers.
 
-**Ideomatic JavaScript, HTML, and CSS**
+**Ideomatic JavaScript, HTML, and CSS.**
 The code should follow best practices for JavaScript, HTML, and CSS.
 
-**Make UserInterface.js more general**
+**Make UserInterface.js more general.**
 It should be easy for someone to build another version of MasterCopy, reusing
 UserInterface.js. As an example, consider a version that performs three transforms
 of three images for projecting onto the three visible faces of a cube.
 Instead of adding this feature the MasterCopy, it should be possible to write
 another simple HTML file that would leverage most of the code in UserInterface.js.
 
-**README.md files for all diretories**
+**README.md files for all directories**
 
 **More rational directory organization**
 
-**Consider using Hugo to build GitHub page** If we did this, the MasterCopy application
+**Consider using Hugo to build GitHub pages.** If we did this, the MasterCopy application
 would just be static content.
 
-**Fix Bugs**
+**Fix Bugs.**
 I will enter bugs in the GitHub issues list shortly.
 
 ## Features for Transferring Artwork
