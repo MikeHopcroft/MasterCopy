@@ -7,7 +7,9 @@ of the goals and engineering standards, I recommend that you send me an email
 with a feature proposal before starting major work. This will avoid disappointments
 in pull requests that don't get integrated.
 
-## Housekeeping
+The following are some areas for future development.
+
+## Housekeeping Wish List
 
 **Cross-platform Testing and Continuous Integration**
 Right now MasterCopy is tested on a few versions of a few browsers.
