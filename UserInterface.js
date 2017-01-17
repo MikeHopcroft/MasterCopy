@@ -366,7 +366,11 @@ function KeyUp(event) {
     }
     else if (event.keyCode == 68) {
         // D toggles demo mode.
-        ToggleDemoMode(); 
+        ToggleDemoMode();
+    }
+    else if (event.keyCode == 83) {
+        // S loads a sample image.
+        LoadSampleImage();
     }
     //else {
     //    window.alert("char = " + event.char + ", " + event.keyCode)
@@ -623,6 +627,18 @@ function UpdateStageImage() {
     else {
         stage.replaceChild(instructions, stage.firstChild);
     }
+}
+
+
+function LoadSampleImage() {
+    image = new Image();
+    image.className = "image"
+    image.width = 100;
+    image.height = 100;
+    image.src = "Vermeer1.jpg";
+    images.push(image);
+    currentImage = images.length - 1;
+    UpdateStageImage();
 }
 
 
