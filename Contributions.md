@@ -25,6 +25,13 @@ of three images for projecting onto the three visible faces of a cube.
 Instead of adding this feature the MasterCopy, it should be possible to write
 another simple HTML file that would leverage most of the code in UserInterface.js.
 
+**README.md files for all diretories**
+
+**More rational directory organization**
+
+**Consider using Hugo to build GitHub page** If we did this, the MasterCopy application
+would just be static content.
+
 **Fix Bugs**
 I will enter bugs in the GitHub issues list shortly.
 
