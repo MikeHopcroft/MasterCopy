@@ -81,6 +81,12 @@ function Handle(element, x, y) {
         mousemoveListener: null,
         mouseupListener: null,
 
+        touchstartListener: null,
+        touchmoveListener: null,
+        touchendListener: null,
+        touchcancelListener: null,
+        touchid: null,
+
 
         PositionElement: function () {
             // TODO: Remove this coupling with styles.
@@ -119,6 +125,70 @@ function Handle(element, x, y) {
 
         //*********************************************************************
         //
+        // Touch event handlers
+        //
+        //*********************************************************************
+        TouchStart: function (event) {
+            if (event.touches.length != 1 || this.touchid != null) {
+                // We're either already processing an earlier touch or we're
+                // being notified of multiple touches. In either case, drop
+                // out of drag mode.
+                this.FinishTouchDrag();
+            }
+            else {
+                // We're starting a single-touch drag operation.
+                var touch = event.touches[0];
+                this.touchid = touch.identifier;
+
+                this.BeginMove(touch.pageX, touch.pageY, event.ctrlKey);
+
+                window.addEventListener('touchmove', this.touchmoveListener);
+                window.addEventListener('touchend', this.touchendListener);
+                window.addEventListener('touchcancel', this.touchcancelListener);
+    
+                this.DoMove(touch.pageX, touch.pageY);
+            }
+
+            // Ensure touch start event doesn't perform other actions
+            // (e.g. switching browser tabs),
+            event.preventDefault();
+        },
+
+
+        TouchMove: function (event) {
+            if (event.touches.length != 1 || this.touchid != event.touches[0].identifier) {
+                // While processing a single touch drag, we received another touch.
+                // Drop out of drag mode.
+                this.FinishTouchDrag();
+            }
+            else {
+                var touch = event.touches[0];
+                this.DoMove(touch.pageX, touch.pageY)
+            }
+        },
+
+
+        TouchEnd: function (event) {
+            this.FinishTouchDrag();
+        },
+
+
+        TouchCancel: function (event) {
+            this.FinishTouchDrag();
+        },
+
+
+        FinishTouchDrag: function() {
+            window.removeEventListener('touchmove', this.touchmoveListener);
+            window.removeEventListener('touchend', this.touchendListener);
+            window.removeEventListener('touchcancel', this.touchcancelListener);
+            this.touchid = null;
+            this.EndMove();           
+        },
+
+
+        //*********************************************************************
+        //
         // Logical event handlers
         //
         // Used to implement mouse and touch handlers.
@@ -143,8 +213,8 @@ function Handle(element, x, y) {
 
 
         DoMove: function(pageX, pageY) {
-            this.MoveTo(event.pageX - this.deltaX,
-                        event.pageY - this.deltaY);
+            this.MoveTo(pageX - this.deltaX,
+                        pageY - this.deltaY);
         },
 
 
@@ -178,11 +248,18 @@ function Handle(element, x, y) {
 
 
         Initialize : function () {
-            this.mousedownListener = this.MouseDown.bind(this),
-            this.mousemoveListener = this.MouseMove.bind(this),
-            this.mouseupListener = this.MouseUp.bind(this),
+            this.mousedownListener = this.MouseDown.bind(this);
+            this.mousemoveListener = this.MouseMove.bind(this);
+            this.mouseupListener = this.MouseUp.bind(this);
 
             this.element.addEventListener("mousedown", this.mousedownListener);
+
+            this.touchstartListener = this.TouchStart.bind(this);
+            this.touchmoveListener = this.TouchMove.bind(this);
+            this.touchendListener = this.TouchEnd.bind(this);
+            this.touchcancelListener = this.TouchCancel.bind(this);
+
+            this.element.addEventListener("touchstart", this.touchstartListener);
         },
     };
 
