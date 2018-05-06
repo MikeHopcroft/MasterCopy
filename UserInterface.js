@@ -89,20 +89,13 @@ function Handle(element, x, y) {
         },
 
 
+        //*********************************************************************
+        //
+        // Mouse event handlers
+        //
+        //*********************************************************************
         MouseDown: function (event) {
-            if (event.ctrlKey) {
-                this.SetCtrlMode(true);
-            }
-            // (deltaX, deltaY) has position of mouse down relative to center of element.
-            this.deltaX = event.pageX - this.element.offsetLeft - this.centerX;
-            this.deltaY = event.pageY - this.element.offsetTop - this.centerY;
-
-            handleUL.TransformStart();
-            handleUR.TransformStart();
-            handleLR.TransformStart();
-            handleLL.TransformStart();
-            handleTranslate.TransformStart();
-            handleRotateAndScale.TransformStart();
+            this.BeginMove(event.pageX, event.pageY, event.ctrlKey);
 
             window.addEventListener('mouseup', this.mouseupListener);
             window.addEventListener('mousemove', this.mousemoveListener);
@@ -113,14 +106,49 @@ function Handle(element, x, y) {
 
 
         MouseMove: function (event) {
-            this.MoveTo(event.pageX - this.deltaX,
-                        event.pageY - this.deltaY)
+            this.DoMove(event.pageX, event.pageY)
         },
 
 
         MouseUp: function (event) {
             window.removeEventListener('mouseup', this.mouseupListener);
             window.removeEventListener('mousemove', this.mousemoveListener);
+            this.EndMove();
+        },
+
+
+        //*********************************************************************
+        //
+        // Logical event handlers
+        //
+        // Used to implement mouse and touch handlers.
+        //
+        //*********************************************************************
+        BeginMove: function (pageX, pageY, ctrlKey) {
+            if (ctrlKey) {
+                this.SetCtrlMode(true);
+            }
+
+            // (deltaX, deltaY) has position of mouse down relative to center of element.
+            this.deltaX = pageX - this.element.offsetLeft - this.centerX;
+            this.deltaY = pageY - this.element.offsetTop - this.centerY;
+
+            handleUL.TransformStart();
+            handleUR.TransformStart();
+            handleLR.TransformStart();
+            handleLL.TransformStart();
+            handleTranslate.TransformStart();
+            handleRotateAndScale.TransformStart();
+        },
+
+
+        DoMove: function(pageX, pageY) {
+            this.MoveTo(event.pageX - this.deltaX,
+                        event.pageY - this.deltaY);
+        },
+
+
+        EndMove: function() {
             this.SetCtrlMode(false);
         },
 
